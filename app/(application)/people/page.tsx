@@ -4,6 +4,7 @@ import { fetchAndParse } from '@/utils/fetch'
 import { requests } from '@/utils/requests'
 import { Container } from '@/components/Container'
 import type { Person } from '@/types/Person'
+import { personProfileUrl } from '@/utils/baseUrl'
 
 export default async function People() {
   const { results: people } = await fetchAndParse<{ results: Person[] }>(
@@ -18,7 +19,7 @@ export default async function People() {
             <Link href={`/person/${person.id}`}>
               <div className="relative flex h-[300px] w-full items-end py-2">
                 <Image
-                  src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+                  src={`${personProfileUrl}${person.profile_path}`}
                   fill={true}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="rounded-sm object-cover md:rounded"

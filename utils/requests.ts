@@ -24,4 +24,6 @@ export const requests = {
   fetchTvPopular: `${BASE_URL}/tv/popular?api_key=${API_KEY}&language=gb_GB`,
   fetchTvTopRated: `${BASE_URL}/tv/top_rated?api_key=${API_KEY}&language=gb_GB`,
   fetchPopularPeople: `${BASE_URL}/person/popular?api_key=${API_KEY}&language=gb_GB`,
+  fetchPersonDetails: (id: string | string[]) =>
+    `${BASE_URL}/person/${id}?api_key=${API_KEY}&append_to_response=combined_credits,&language=gb_GB`,
 }

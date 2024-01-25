@@ -3,6 +3,7 @@ import { formatDate } from '@/utils/dates'
 import { Rating } from '@/components/Rating'
 import { MovieAndTVShow } from '@/types/MovieAndTv'
 import Link from 'next/link'
+import { Placeholder } from '@/components/Placeholder'
 
 interface CarouselItemProps {
   movie: MovieAndTVShow
@@ -11,16 +12,20 @@ interface CarouselItemProps {
 export const CarouselItem: React.FC<CarouselItemProps> = ({ movie }) => {
   return (
     <div className="relative h-[266px] shrink-0">
-      <Image
-        src={`https://image.tmdb.org/t/p/w500${
-          movie.backdrop_path || movie.poster_path
-        }`}
-        fill={true}
-        sizes="(max-width: 768px) 100vw, 33vw"
-        className="rounded-sm object-cover md:rounded"
-        alt={movie?.title || movie?.name || 'movie poster'}
-        loading="lazy"
-      />
+      {!movie.backdrop_path && !movie.poster_path ? (
+        <Placeholder />
+      ) : (
+        <Image
+          src={`https://image.tmdb.org/t/p/w500${
+            movie.backdrop_path || movie.poster_path
+          }`}
+          fill={true}
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="rounded-sm object-cover md:rounded"
+          alt={movie?.title || movie?.name || 'movie poster'}
+          loading="lazy"
+        />
+      )}
       <Link
         href={`/${'title' in movie ? 'movies' : 'tv'}/${movie.id}`}
         className="group absolute inset-0"
