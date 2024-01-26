@@ -97,7 +97,7 @@ export default function Home() {
           title="All Trending Now"
           isHomepage
         />
-        {/* <CarouselListRow
+        <CarouselListRow
           list={movie.topRated}
           title="Top Rated Movies"
           isHomepage
@@ -126,7 +126,7 @@ export default function Home() {
           list={movie.documentaries}
           title="Documentaries"
           isHomepage
-        /> */}
+        />
       </div>
     </>
   )
