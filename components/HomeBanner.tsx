@@ -37,11 +37,11 @@ export const HomeBanner: React.FC<HomeBannerProps> = ({ movies }) => {
           {movie?.vote_average && (
             <Rating value={movie?.vote_average} className="text-orange-400" />
           )}
-          <Genres
+          {/* <Genres
             size="small"
             genres={movie?.genre_ids.map((genre) => genre as unknown as number)}
             type="movie"
-          />
+          /> */}
         </div>
         <p className="text-shadow-md line-clamp-5 max-w-xs text-xs md:max-w-lg md:text-lg lg:max-w-2xl">
           {movie?.overview}
