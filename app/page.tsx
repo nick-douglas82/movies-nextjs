@@ -92,12 +92,12 @@ export default function Home() {
       <Loader isLoading={isLoading} />
       <div className="mb-20">
         <HomeBanner movies={movie.netflixOriginals} />
-        {/* <CarouselListRow
+        <CarouselListRow
           list={movie.trendingNow}
           title="All Trending Now"
           isHomepage
         />
-        <CarouselListRow
+        {/* <CarouselListRow
           list={movie.topRated}
           title="Top Rated Movies"
           isHomepage
